@@ -1,10 +1,10 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 import { FaBars } from 'react-icons/fa';
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuRef = useRef(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);  // State to manage menu open/close
+  const menuRef = useRef(null);  // Ref to handle outside clicks
 
   const subhover = "font-medium text-[18px] text-[#000000]";
   const mainHover = ({ isActive }) =>
@@ -47,18 +47,17 @@ const Header = () => {
           <NavLink to="/contact" className={mainHover}>
             Contact
           </NavLink>
-          <div>
-            <Link to='/signin' className="bg-[#FF5900] hover:bg-[#FF7A33] text-[#fff] px-4 py-1 rounded-[4px] cursor-pointer transition duration-300">Sign In</Link>
-          </div>
+          
+          <NavLink to='/signin' className="bg-[#FF5900] hover:bg-[#FF7A33] text-[#fff] px-4 py-1 rounded-[4px] cursor-pointer transition duration-300">Sign In</NavLink>
         </ul>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
           <button
             className="bg-[#FF5900] text-white px-2 py-1 rounded-[4px] cursor-pointer transition duration-300"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}  // Toggle the menu open/close
           >
-             <FaBars className="h-6 w-6 text-white" />
+            <FaBars className="h-6 w-6 text-white" />
           </button>
         </div>
 
@@ -71,34 +70,32 @@ const Header = () => {
             <NavLink
               to="/"
               className={mainHover}
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => setIsMenuOpen(false)}  // Close the menu when link is clicked
             >
               Home
             </NavLink>
             <NavLink
               to="/features"
               className={mainHover}
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => setIsMenuOpen(false)}  // Close the menu when link is clicked
             >
               Features
             </NavLink>
             <NavLink
               to="/subscribe"
               className={mainHover}
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => setIsMenuOpen(false)}  // Close the menu when link is clicked
             >
               Subscribe
             </NavLink>
             <NavLink
               to="/contact"
               className={mainHover}
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => setIsMenuOpen(false)}  // Close the menu when link is clicked
             >
               Contact
             </NavLink>
-            <div>
-            <button className="bg-[#FF5900] hover:bg-[#FF7A33] text-[#fff] px-4 py-1 rounded-[4px] cursor-pointer transition duration-300">Sign In</button>
-          </div>
+            <NavLink to='/signin' className="bg-[#FF5900] hover:bg-[#FF7A33] text-[#fff] px-4 py-1 rounded-[4px] cursor-pointer transition duration-300" onClick={() => setIsMenuOpen(false)}>Sign In</NavLink>
           </ul>
         )}
       </div>
