@@ -68,14 +68,14 @@ function SignIn() {
       <div className="absolute inset-0 bg-[#672d0c] opacity-50"></div>
 
       {/* Logo */}
-      <div className="absolute top-4 left-10 flex items-center gap-[2px] z-20">
+      <div className="absolute top-4 left-10 items-center gap-[2px] z-20 hidden md:flex">
         <h1 className="text-[#FF5900] font-bold text-[24px]">Teacher</h1>
         <h1 className="text-[#fff] font-bold text-[24px]">Review</h1>
       </div>
 
       {/* Content */}
       <div
-        className="relative z-10 w-full max-w-md px-6 py-8 rounded-md shadow-lg"
+        className="relative z-10 w-[95%] max-w-md px-6 py-8 rounded-md shadow-lg"
         style={{
           backgroundColor: "rgba(0, 0, 0, 0.51)", // Black with 51% opacity
         }}

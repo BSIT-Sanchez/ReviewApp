@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
 import { AiFillInfoCircle } from "react-icons/ai"; // Icon for error indication
+import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai"; // Eye icon for showing and hiding password
 
 function SignUp() {
   const [formData, setFormData] = useState({ fullname: "", email: "", password: "" });
   const [errors, setErrors] = useState({ fullname: "", email: "", password: "" });
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
   const navigate = useNavigate(); // Hook for navigation
 
   // Handle input changes
@@ -71,13 +73,13 @@ function SignUp() {
       <div className="absolute inset-0 bg-[#672d0c] opacity-50"></div>
 
       {/* Logo */}
-      <div className="absolute top-4 left-10 flex items-center gap-[2px] z-20">
+      <div className="absolute top-4 left-10 items-center gap-[2px] z-20 hidden md:flex">
         <h1 className="text-[#FF5900] font-bold text-[24px]">Teacher</h1>
         <h1 className="text-[#fff] font-bold text-[24px]">Review</h1>
       </div>
 
       {/* Form Content */}
-      <div className="relative z-10 w-full max-w-md px-6 py-8 rounded-md shadow-lg" style={{ backgroundColor: "rgba(0, 0, 0, 0.51)" }}>
+      <div className="relative z-10 w-[95%] md:w-full max-w-md px-6 py-8 rounded-md shadow-lg" style={{ backgroundColor: "rgba(0, 0, 0, 0.51)" }}>
         <h1 className="text-[40px] font-bold mb-6 text-left text-[#FFF]">Sign Up</h1>
         <form className="flex flex-col gap-4 text-white" onSubmit={handleSubmit}>
           {/* Full Name */}
@@ -117,15 +119,21 @@ function SignUp() {
           </div>
 
           {/* Password */}
-          <div>
+          <div className="relative">
             <input
-              type="password"
+              type={showPassword ? "text" : "password"} // Toggle between text and password
               name="password"
               placeholder="Password"
               value={formData.password}
               onChange={handleChange}
               className={`px-4 py-2 rounded-md border w-full ${errors.password ? "border-red-500" : "border-white"} focus:outline-none bg-transparent text-white placeholder:text-white placeholder:opacity-60 focus:ring-1 focus:ring-[#FF5900]`}
             />
+            <div
+              onClick={() => setShowPassword(!showPassword)} // Toggle password visibility
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer"
+            >
+              {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />} {/* Eye icon */}
+            </div>
             {errors.password && (
               <div className="flex items-start mt-2 text-red-500 text-sm">
                 <AiFillInfoCircle className="mr-2 mt-1" />
@@ -159,9 +167,9 @@ function SignUp() {
           {/* Login Prompt */}
           <p className="text-gray-300 text-sm mt-4">
             Already have an account?{" "}
-            <a href="/signin" className="text-[#FF5900] hover:underline">
+            <Link to="/signin" className="text-[#FF5900] hover:underline">
               Sign In
-            </a>
+            </Link>
           </p>
         </form>
       </div>

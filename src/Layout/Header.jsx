@@ -65,7 +65,7 @@ const Header = () => {
         {isMenuOpen && (
           <ul
             ref={menuRef}
-            className="flex flex-col items-start gap-3 mt-4 w-full md:hidden bg-[#fff] shadow-md rounded p-4"
+            className="flex flex-col items-start gap-3 mt-4 w-full md:hidden bg-none p-4"
           >
             <NavLink
               to="/"

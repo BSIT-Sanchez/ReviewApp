@@ -19,14 +19,14 @@ const Subscribe = () => {
         {/* Text Content */}
         <div className="relative z-10">
           <div className="flex justify-center items-center -mt-[10rem]">
-            <h1 className="text-[#fff] text-[65px] font-bold">
+            <h1 className="text-[#fff] md:text-[65px] text-[40px] font-bold">
               Choose your Plan
             </h1>
           </div>
         </div>
       </div>
 
-      <div className="grid md:grid-cols-3 grid-cols-1 gap-4 justify-items-center mb-4 -mt-[10rem]">
+      <div className="grid md:grid-cols-3 grid-cols-1 gap-10 justify-items-center mb-4 md:-mt-[10rem] -mt-[15rem]">
         {/* Card 1 */}
         <div 
           className="bg-[#f0f0f0] p-8 rounded-lg opacity-90 shadow-lg w-[352px] h-[450px] cursor-pointer"
