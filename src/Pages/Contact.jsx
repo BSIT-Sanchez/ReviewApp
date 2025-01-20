@@ -57,7 +57,7 @@ const Contact = () => {
             <input
             type="text"
             placeholder=""
-            className="w-full p-3 mt-2 rounded-md"
+            className="w-full p-3 mt-2 rounded-md border-[#A33900] border"
             />
         </div>
         <div className="w-full md:w-1/2">
