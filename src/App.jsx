@@ -5,6 +5,7 @@ import Subscribe from "./Pages/Subscribe";
 import Contact from "./Pages/Contact";
 import SignIn from "./Pages/SignIn";
 import SignUp from "./Pages/SignUp";
+import NotFound from "./Pages/NotFound";
 
 const App = () => {
   return(
@@ -15,6 +16,7 @@ const App = () => {
       <Route path="/contact" element={<Contact/>}/>
       <Route path="/signin" element={<SignIn/>}/>
       <Route path="/signup" element={<SignUp/>}/>
+      <Route path="*" element={<NotFound/>}/>
     </Routes>
 
   )
