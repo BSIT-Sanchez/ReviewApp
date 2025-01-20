@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
 import { AiFillInfoCircle } from "react-icons/ai"; // Icon for error indication
-import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai"; // Eye icon for showing and hiding password
+import { FaEye, FaEyeSlash } from "react-icons/fa"; // Eye icons for show/hide password
 
 function SignUp() {
   const [formData, setFormData] = useState({ fullname: "", email: "", password: "" });
   const [errors, setErrors] = useState({ fullname: "", email: "", password: "" });
-  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+  const [showPassword, setShowPassword] = useState(false); // State to manage password visibility
   const navigate = useNavigate(); // Hook for navigation
 
   // Handle input changes
@@ -119,20 +119,23 @@ function SignUp() {
           </div>
 
           {/* Password */}
-          <div className="relative">
-            <input
-              type={showPassword ? "text" : "password"} // Toggle between text and password
-              name="password"
-              placeholder="Password"
-              value={formData.password}
-              onChange={handleChange}
-              className={`px-4 py-2 rounded-md border w-full ${errors.password ? "border-red-500" : "border-white"} focus:outline-none bg-transparent text-white placeholder:text-white placeholder:opacity-60 focus:ring-1 focus:ring-[#FF5900]`}
-            />
-            <div
-              onClick={() => setShowPassword(!showPassword)} // Toggle password visibility
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer"
-            >
-              {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />} {/* Eye icon */}
+          <div>
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="Password"
+                value={formData.password}
+                onChange={handleChange}
+                className={`px-4 py-2 w-full rounded-md border ${errors.password ? "border-red-500" : "border-white"} focus:outline-none bg-transparent text-white placeholder:text-white placeholder:opacity-60 focus:ring-1 focus:ring-[#FF5900]`}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword((prev) => !prev)}
+                className="absolute inset-y-0 right-2 flex items-center text-gray-500 hover:text-[#FF5900]"
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
             </div>
             {errors.password && (
               <div className="flex items-start mt-2 text-red-500 text-sm">
@@ -143,7 +146,10 @@ function SignUp() {
           </div>
 
           {/* Sign-Up Button */}
-          <button type="submit" className="w-full bg-[#FF5900] text-white py-2 rounded-md hover:bg-[#e54e00] transition text-[20px] font-bold">
+          <button
+            type="submit"
+            className="w-full bg-[#FF5900] text-white py-2 rounded-md hover:bg-[#e54e00] transition text-[20px] font-bold"
+          >
             Sign Up
           </button>
 
@@ -154,21 +160,27 @@ function SignUp() {
             <hr className="flex-grow border-gray-600" />
           </div>
 
-          {/* Google Button */}
-          <button type="button" className="w-full flex items-center justify-center gap-2 bg-[#Fff] text-black py-2 rounded-md font-bold border">
+          {/* Google Button with Color Palette */}
+          <button
+            type="button"
+            className="w-full flex items-center justify-center gap-2 bg-[#Fff] text-black py-2 rounded-md font-bold border"
+          >
             <FaGoogle style={{ color: "#db4437" }} /> Sign up with Google
           </button>
 
           {/* Facebook Button */}
-          <button type="button" className="w-full flex items-center justify-center gap-2 bg-[#fff] py-2 rounded-md font-bold border text-black">
+          <button
+            type="button"
+            className="w-full flex items-center justify-center gap-2 bg-[#fff] py-2 rounded-md font-bold border text-black"
+          >
             <FaFacebook style={{ color: "#1877F2" }} /> Sign up with Facebook
           </button>
 
-          {/* Login Prompt */}
+          {/* Sign In Prompt */}
           <p className="text-gray-300 text-sm mt-4">
             Already have an account?{" "}
             <Link to="/signin" className="text-[#FF5900] hover:underline">
-              Sign In
+              Sign In now.
             </Link>
           </p>
         </form>

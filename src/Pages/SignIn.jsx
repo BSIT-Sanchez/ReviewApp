@@ -75,7 +75,7 @@ function SignIn() {
 
       {/* Content */}
       <div
-        className="relative z-10 w-[95%] max-w-md px-6 py-8 rounded-md shadow-lg"
+        className="relative z-10 w-[95%] md:w-full max-w-md px-6 py-8 rounded-md shadow-lg"
         style={{
           backgroundColor: "rgba(0, 0, 0, 0.51)", // Black with 51% opacity
         }}
