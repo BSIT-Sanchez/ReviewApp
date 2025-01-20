@@ -1,0 +1,8 @@
+ <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="50" fill="#FF5900" />
+      <path
+        d="M50 25L55.9161 37.7516L69.6946 39.5725L59.8473 49.2484L62.0779 62.9275L50 56.5L37.9221 62.9275L40.1527 49.2484L30.3054 39.5725L44.0839 37.7516L50 25Z"
+        fill="white"
+      />
+      <path d="M28 70C28 70 35 75 50 75C65 75 72 70 72 70" stroke="white" strokeWidth="4" strokeLinecap="round" />
+    </svg>
